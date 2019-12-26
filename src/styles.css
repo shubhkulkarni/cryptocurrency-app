@@ -1,4 +1,7 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+#root {
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to right, #114da8, #4eb5f5);
+  height: 100%;
+  display: flex;
 }
