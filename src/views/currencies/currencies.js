@@ -9,16 +9,21 @@ const Currencies = () => {
     setValue(event.target.value);
   };
 
+  const currencyMenu = ["USD", "INR", "GBP", "JPY"];
+  const cryptoMenu = ["Bitcoin", "Ethereum"];
+
   return (
     <div className="currencies">
       <Dropdown
         changeHandler={changeHandler}
         value={value}
+        items={currencyMenu}
         label="Select currency"
       />
       <Dropdown
         changeHandler={changeHandler}
         value={value}
+        items={cryptoMenu}
         label="Select cryptocurrency"
       />
       <Mybutton name="get rates" />

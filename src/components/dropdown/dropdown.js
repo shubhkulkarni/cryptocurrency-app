@@ -9,14 +9,14 @@ import Select from "@material-ui/core/Select";
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: "80%"
+    width: "100%"
   },
   selectEmpty: {
     marginTop: theme.spacing(2)
   }
 }));
 
-const Dropdown = ({ value, label, changeHandler = () => false }) => {
+const Dropdown = ({ value, items, label, changeHandler = () => false }) => {
   const classes = useStyles();
   return (
     <FormControl className={classes.formControl}>
@@ -27,9 +27,16 @@ const Dropdown = ({ value, label, changeHandler = () => false }) => {
         value={value}
         onChange={changeHandler}
       >
-        <MenuItem value={10}>Ten</MenuItem>
+        {items.map((item, index) => {
+          return (
+            <MenuItem key={index} value={item}>
+              {item}
+            </MenuItem>
+          );
+        })}
+        {/* <MenuItem value={10}>Ten</MenuItem>
         <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        <MenuItem value={30}>Thirty</MenuItem> */}
       </Select>
     </FormControl>
   );

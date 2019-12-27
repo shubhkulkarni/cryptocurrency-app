@@ -7,9 +7,8 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <div className="main">
-        <Currencies />
-      </div>
+
+      <Currencies />
     </div>
   );
 };
