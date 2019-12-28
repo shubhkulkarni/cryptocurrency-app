@@ -14,10 +14,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Mybutton = ({ name }) => {
+const Mybutton = ({ name, ...props }) => {
   const classes = useStyles();
   return (
-    <Button className={classes.root} variant="contained">
+    <Button className={classes.root} {...props} variant="contained">
       {name}
     </Button>
   );

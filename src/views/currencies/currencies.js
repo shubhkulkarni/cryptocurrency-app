@@ -3,7 +3,13 @@ import "./currencies.css";
 import Dropdown from "../../components/dropdown";
 import Mybutton from "../../components/mybutton";
 
-const Currencies = () => {
+const Currencies = ({
+  currValue,
+  cryptoValue,
+  currHandler,
+  cryptoHandler,
+  handleRateButton
+}) => {
   const [value, setValue] = useState("");
   const changeHandler = event => {
     setValue(event.target.value);
@@ -15,18 +21,18 @@ const Currencies = () => {
   return (
     <div className="currencies">
       <Dropdown
-        changeHandler={changeHandler}
-        value={value}
+        changeHandler={currHandler}
+        value={currValue}
         items={currencyMenu}
         label="Select currency"
       />
       <Dropdown
-        changeHandler={changeHandler}
-        value={value}
+        changeHandler={cryptoHandler}
+        value={cryptoValue}
         items={cryptoMenu}
         label="Select cryptocurrency"
       />
-      <Mybutton name="get rates" />
+      <Mybutton onClick={handleRateButton} name="get rates" />
     </div>
   );
 };
