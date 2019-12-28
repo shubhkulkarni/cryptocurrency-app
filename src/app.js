@@ -18,8 +18,9 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-
-      <Currencies {...currencyProps} />
+      <div className="currency">
+        <Currencies {...currencyProps} />
+      </div>
     </div>
   );
 };

@@ -28,6 +28,7 @@ const Currencies = ({
         label="Select cryptocurrency"
       />
       <br />
+      <br />
       <Mybutton onClick={handleRateButton} name="get rates" />
     </div>
   );

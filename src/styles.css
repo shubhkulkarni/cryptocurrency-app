@@ -1,14 +1,15 @@
 #root {
-  align-items: center;
-  justify-content: center;
   background-image: linear-gradient(to right, #114da8, #4eb5f5);
   height: 100%;
+}
+
+.currency {
+  align-items: center;
+  justify-content: center;
   display: flex;
 }
 
-.main {
-  width: 100%;
-}
-
 .App {
+  height: 100%;
+  width: 100%;
 }
