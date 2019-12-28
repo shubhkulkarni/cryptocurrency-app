@@ -10,8 +10,9 @@ const App = () => {
   const currencyProps = {
     currHandler: e => setCurrency(e.target.value),
     currValue: currency,
-    cryptoHandler: e => setCurrency(e.target.value),
-    cryptoValue: cryptoCurrency
+    cryptoHandler: e => setCryptoCurrency(e.target.value),
+    cryptoValue: cryptoCurrency,
+    handleRateButton: () => console.log("get rates")
   };
 
   return (

@@ -10,11 +10,6 @@ const Currencies = ({
   cryptoHandler,
   handleRateButton
 }) => {
-  const [value, setValue] = useState("");
-  const changeHandler = event => {
-    setValue(event.target.value);
-  };
-
   const currencyMenu = ["USD", "INR", "GBP", "JPY"];
   const cryptoMenu = ["Bitcoin", "Ethereum"];
 
@@ -32,6 +27,7 @@ const Currencies = ({
         items={cryptoMenu}
         label="Select cryptocurrency"
       />
+      <br />
       <Mybutton onClick={handleRateButton} name="get rates" />
     </div>
   );
