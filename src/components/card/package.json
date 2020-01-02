@@ -1,0 +1,6 @@
+{
+  "name": "my-card",
+  "private": true,
+  "version": "1.0.0",
+  "main": "./index.js"
+}

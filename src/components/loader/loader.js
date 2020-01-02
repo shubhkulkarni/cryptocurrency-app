@@ -11,11 +11,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Loader = ({ isLoading }) => {
+const Loader = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {isLoading ? <CircularProgress color="secondary" /> : null}
+      <CircularProgress color="secondary" />
     </div>
   );
 };
