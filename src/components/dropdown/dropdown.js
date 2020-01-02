@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 const Dropdown = ({ value, items, label, changeHandler = () => false }) => {
   const classes = useStyles();
+
   return (
     <FormControl className={classes.formControl}>
       <InputLabel id="demo-simple-select-label">{label}</InputLabel>
@@ -34,9 +35,6 @@ const Dropdown = ({ value, items, label, changeHandler = () => false }) => {
             </MenuItem>
           );
         })}
-        {/* <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem> */}
       </Select>
     </FormControl>
   );

@@ -2,17 +2,19 @@ import React, { useState } from "react";
 
 import Header from "./views/header";
 import Currencies from "./views/currencies";
+import Results from "./views/results/results";
 
 const App = () => {
   const [currency, setCurrency] = useState("");
   const [cryptoCurrency, setCryptoCurrency] = useState("");
+  const [loader, setLoader] = useState(false);
 
   const currencyProps = {
     currHandler: e => setCurrency(e.target.value),
     currValue: currency,
     cryptoHandler: e => setCryptoCurrency(e.target.value),
     cryptoValue: cryptoCurrency,
-    handleRateButton: () => console.log("get rates")
+    handleRateButton: () => setLoader(!loader)
   };
 
   return (
@@ -21,6 +23,7 @@ const App = () => {
       <div className="currency">
         <Currencies {...currencyProps} />
       </div>
+      <Results isLoading={loader} />
     </div>
   );
 };

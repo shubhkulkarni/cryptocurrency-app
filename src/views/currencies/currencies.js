@@ -3,13 +3,15 @@ import "./currencies.css";
 import Dropdown from "../../components/dropdown";
 import Mybutton from "../../components/mybutton";
 
-const Currencies = ({
-  currValue,
-  cryptoValue,
-  currHandler,
-  cryptoHandler,
-  handleRateButton
-}) => {
+const Currencies = props => {
+  const {
+    currValue,
+    cryptoValue,
+    currHandler,
+    cryptoHandler,
+    handleRateButton
+  } = props;
+
   const currencyMenu = ["USD", "INR", "GBP", "JPY"];
   const cryptoMenu = ["Bitcoin", "Ethereum"];
 

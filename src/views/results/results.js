@@ -1,7 +1,12 @@
 import React from "react";
 import "./results.css";
+import Loader from "../../components/loader";
 
-const Results = () => {
-  return <div>result view</div>;
+const Results = ({ isLoading }) => {
+  return (
+    <div>
+      <Loader isLoading={isLoading} />
+    </div>
+  );
 };
 export default Results;
