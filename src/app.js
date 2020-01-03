@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 
 import Header from "./views/header";
 import Currencies from "./views/currencies";
 import Results from "./views/results/results";
 import { fetchRates } from "./services/conversionData";
+import Loader from "./components/loader";
 
 let conversionData = fetchRates();
 
@@ -19,7 +20,8 @@ const App = () => {
     cryptoValue: cryptoCurrency,
     handleRateButton: () => {
       // setLoader(!loader);
-      console.log(conversionData.rate.read());
+      console.log({ currency: currency, cryptoCurrency: cryptoCurrency });
+      // console.log(conversionData.rate.read());
     }
   };
 
@@ -29,7 +31,7 @@ const App = () => {
       <div className="currency">
         <Currencies {...currencyProps} />
       </div>
-      {/* <Results isLoading={loader} /> */}
+      <Results />
     </div>
   );
 };

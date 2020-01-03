@@ -13,7 +13,9 @@ const cardProps = {
 const Results = ({ isLoading }) => {
   return (
     <div className="result">
-      {isLoading ? <Loader /> : <MyCard {...cardProps} />}
+      <MyCard {...cardProps} />
+      <MyCard {...cardProps} />
+      <MyCard {...cardProps} />
     </div>
   );
 };
