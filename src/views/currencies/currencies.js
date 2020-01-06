@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./currencies.css";
 import Dropdown from "../../components/dropdown";
 import Mybutton from "../../components/mybutton";
+import { targetCurrencies } from "../../constants/currencies";
 
 const Currencies = props => {
   const {
@@ -20,7 +21,7 @@ const Currencies = props => {
       <Dropdown
         changeHandler={currHandler}
         value={currValue}
-        items={currencyMenu}
+        items={targetCurrencies}
         label="Select currency"
       />
       <Dropdown

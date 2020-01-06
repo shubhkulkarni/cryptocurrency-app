@@ -20,8 +20,8 @@ const App = () => {
     cryptoValue: cryptoCurrency,
     handleRateButton: () => {
       // setLoader(!loader);
-      console.log({ currency: currency, cryptoCurrency: cryptoCurrency });
-      // console.log(conversionData.rate.read());
+      // console.log(conversionData.rate);
+      console.log(conversionData.rate.read().data.rates);
     }
   };
 
