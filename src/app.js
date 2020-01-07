@@ -22,7 +22,10 @@ const App = () => {
         .get(
           `https://0brte.sse.codesandbox.io/currency-rates?expand=1&target=${currency}&symbols=${cryptoCurrency}`
         )
-        .then(res => setRateData(res));
+        .then(res => {
+          setRateData(res);
+          setSendReq(false);
+        });
     }
   }, [sendReq]);
   const currencyProps = {
@@ -32,6 +35,9 @@ const App = () => {
     cryptoValue: cryptoCurrency,
     handleRateButton: () => {
       // setLoader(!loader);
+      console.log(
+        `https://0brte.sse.codesandbox.io/currency-rates?expand=1&target=${currency}&symbols=${cryptoCurrency}`
+      );
       setSendReq(true);
       // console.log(conversionData.rate);
       // console.log(conversionData.rate.read().data.rates);
