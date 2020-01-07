@@ -14,8 +14,6 @@ const Results = ({ isLoading }) => {
   return (
     <div className="result">
       <MyCard {...cardProps} />
-      <MyCard {...cardProps} />
-      <MyCard {...cardProps} />
     </div>
   );
 };

@@ -1,10 +1,11 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 
 import Header from "./views/header";
 import Currencies from "./views/currencies";
 import Results from "./views/results/results";
 import { fetchRates } from "./services/conversionData";
 import Loader from "./components/loader";
+import axios from "axios";
 
 let conversionData = fetchRates();
 
@@ -12,7 +13,18 @@ const App = () => {
   const [currency, setCurrency] = useState("");
   const [cryptoCurrency, setCryptoCurrency] = useState("");
   const [loader, setLoader] = useState(false);
+  const [sendReq, setSendReq] = useState(false);
+  const [rateData, setRateData] = useState({});
 
+  useEffect(() => {
+    if (sendReq) {
+      axios
+        .get(
+          `https://0brte.sse.codesandbox.io/currency-rates?expand=1&target=${currency}&symbols=${cryptoCurrency}`
+        )
+        .then(res => setRateData(res));
+    }
+  }, [sendReq]);
   const currencyProps = {
     currHandler: e => setCurrency(e.target.value),
     currValue: currency,
@@ -20,8 +32,10 @@ const App = () => {
     cryptoValue: cryptoCurrency,
     handleRateButton: () => {
       // setLoader(!loader);
+      setSendReq(true);
       // console.log(conversionData.rate);
-      console.log(conversionData.rate.read().data.rates);
+      // console.log(conversionData.rate.read().data.rates);
+      console.log(rateData);
     }
   };
 
