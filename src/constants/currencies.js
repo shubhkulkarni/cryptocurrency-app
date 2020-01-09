@@ -1,6 +1,5 @@
 export const targetCurrencies = [
   "AED",
-  "AFN",
   "ALL",
   "AMD",
   "ANG",

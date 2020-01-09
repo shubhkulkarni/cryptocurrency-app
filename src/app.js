@@ -22,7 +22,7 @@ const App = () => {
       let crypt = cryptoCurrency;
       axios
         .get(
-          `https://k17db.sse.codesandbox.io/currency-rates?fsym=${crypt}&tsyms=${curr}`
+          `https://ehr9i.sse.codesandbox.io/currency-rates?fsym=${crypt}&tsyms=${curr}`
         )
         .then(res => {
           setRateData(Object.values(res.data)[0]);
