@@ -26,6 +26,7 @@ const App = () => {
         )
         .then(res => {
           setRateData(Object.values(res.data)[0]);
+          setLoader(!loader);
           setSendReq(false);
         });
     }
@@ -36,7 +37,7 @@ const App = () => {
     cryptoHandler: e => setCryptoCurrency(e.target.value),
     cryptoValue: cryptoCurrency,
     handleRateButton: () => {
-      // setLoader(!loader);
+      setLoader(!loader);
       setSendReq(true);
       console.log(rateData);
 
@@ -47,7 +48,8 @@ const App = () => {
 
   const resultProps = {
     rates: rateData,
-    title: `${currency}/${cryptoCurrency}`
+    title: `${currency}/${cryptoCurrency}`,
+    isLoading: Loader
   };
   return (
     <div className="App">

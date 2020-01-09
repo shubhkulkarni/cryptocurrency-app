@@ -11,7 +11,7 @@ const cardProps = {
 const Results = ({ isLoading, rates, title }) => {
   return (
     <div className="result">
-      <MyCard {...cardProps} title={title} heading={rates} />
+      {rates ? <MyCard {...cardProps} title={title} heading={rates} /> : null}
     </div>
   );
 };
