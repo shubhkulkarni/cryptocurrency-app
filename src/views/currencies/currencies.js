@@ -14,7 +14,7 @@ const Currencies = props => {
   } = props;
 
   const currencyMenu = ["USD", "INR", "GBP", "JPY"];
-  const cryptoMenu = ["btc", "eth"];
+  const cryptoMenu = ["BTC", "ETH"];
 
   return (
     <div className="currencies">

@@ -4,16 +4,14 @@ import Loader from "../../components/loader";
 import MyCard from "../../components/card";
 
 const cardProps = {
-  title: "USD/Bitcoin",
-  heading: "1350.6",
   body: "223+ from last day",
   action: "More details"
 };
 
-const Results = ({ isLoading }) => {
+const Results = ({ isLoading, rates, title }) => {
   return (
     <div className="result">
-      <MyCard {...cardProps} />
+      <MyCard {...cardProps} title={title} heading={rates} />
     </div>
   );
 };
