@@ -6,6 +6,7 @@ import Results from "./views/results/results";
 import { fetchRates } from "./services/conversionData";
 import Loader from "./components/loader";
 import axios from "axios";
+import Navigation from "./views/navigation/navigation";
 
 let conversionData = fetchRates();
 
@@ -53,6 +54,7 @@ const App = () => {
   };
   return (
     <div className="App">
+      <Navigation />
       <Header />
       <div className="currency">
         <Currencies {...currencyProps} />
