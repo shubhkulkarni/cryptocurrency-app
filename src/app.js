@@ -49,7 +49,8 @@ const App = () => {
       setLoader(!loader);
       fetchRateData(cryptoCurrency, currency).then(res => {
         setLoader(false);
-        let ratesdata = Object.values(res.data)[0];
+        let ratesdata = Object.values(res.data)[0].toFixed(2);
+        console.log(res.data);
         setRateData(ratesdata);
       });
     },
