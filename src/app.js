@@ -33,20 +33,26 @@ const App = () => {
   //   }
   // }, [sendReq]);
 
-  const fetchRateData = (crypt, curr) => {
-    axios
-      .get(
-        `https://ehr9i.sse.codesandbox.io/currency-rates?fsym=${crypt}&tsyms=${curr}`
-      )
-      .then(res => {
-        setLoader(false);
-        setRateData(Object.values(res.data)[0]);
-      });
+  const fetchRateData = async (crypt, curr) => {
+    let result = await axios.get(
+      `https://ehr9i.sse.codesandbox.io/currency-rates?fsym=${crypt}&tsyms=${curr}`
+    );
+
+    return result;
   };
+
   const currencyProps = {
     currHandler: e => setCurrency(e.target.value),
     currValue: currency,
-    cryptoHandler: e => setCryptoCurrency(e.target.value),
+    cryptoHandler: e => {
+      setCryptoCurrency(e.target.value);
+      setLoader(!loader);
+      fetchRateData(cryptoCurrency, currency).then(res => {
+        setLoader(false);
+        let ratesdata = Object.values(res.data)[0];
+        setRateData(ratesdata);
+      });
+    },
     cryptoValue: cryptoCurrency,
     handleRateButton: () => {
       setLoader(!loader);

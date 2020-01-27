@@ -32,7 +32,6 @@ const Currencies = props => {
       />
       <br />
       <br />
-      <Mybutton onClick={handleRateButton} name="get rates" />
     </div>
   );
 };
