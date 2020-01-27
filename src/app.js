@@ -17,21 +17,32 @@ const App = () => {
   const [sendReq, setSendReq] = useState(false);
   const [rateData, setRateData] = useState();
 
-  useEffect(() => {
-    if (sendReq) {
-      let curr = currency;
-      let crypt = cryptoCurrency;
-      axios
-        .get(
-          `https://ehr9i.sse.codesandbox.io/currency-rates?fsym=${crypt}&tsyms=${curr}`
-        )
-        .then(res => {
-          setRateData(Object.values(res.data)[0]);
-          setLoader(!loader);
-          setSendReq(false);
-        });
-    }
-  }, [sendReq]);
+  // useEffect(() => {
+  //   if (sendReq) {
+  //     let curr = currency;
+  //     let crypt = cryptoCurrency;
+  //     axios
+  //       .get(
+  //         `https://ehr9i.sse.codesandbox.io/currency-rates?fsym=${crypt}&tsyms=${curr}`
+  //       )
+  //       .then(res => {
+  //         setRateData(Object.values(res.data)[0]);
+  //         setLoader(!loader);
+  //         setSendReq(false);
+  //       });
+  //   }
+  // }, [sendReq]);
+
+  const fetchRateData = (crypt, curr) => {
+    axios
+      .get(
+        `https://ehr9i.sse.codesandbox.io/currency-rates?fsym=${crypt}&tsyms=${curr}`
+      )
+      .then(res => {
+        setLoader(false);
+        setRateData(Object.values(res.data)[0]);
+      });
+  };
   const currencyProps = {
     currHandler: e => setCurrency(e.target.value),
     currValue: currency,
@@ -39,18 +50,16 @@ const App = () => {
     cryptoValue: cryptoCurrency,
     handleRateButton: () => {
       setLoader(!loader);
-      setSendReq(true);
-      console.log(rateData);
+      fetchRateData(cryptoCurrency, currency);
 
-      // console.log(conversionData.rate);
-      // console.log(conversionData.rate.read().data.rates);
+      console.log(rateData);
     }
   };
 
   const resultProps = {
     rates: rateData,
     title: `${currency}/${cryptoCurrency}`,
-    isLoading: Loader
+    isLoading: loader
   };
   return (
     <div className="App">
