@@ -44,7 +44,7 @@ export default function Navigation() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar} />
+
       <Drawer
         className={classes.drawer}
         variant="permanent"
