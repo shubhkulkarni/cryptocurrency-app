@@ -42,10 +42,8 @@ const App = () => {
   };
 
   const currencyProps = {
-    currHandler: e => setCurrency(e.target.value),
-    currValue: currency,
-    cryptoHandler: e => {
-      setCryptoCurrency(e.target.value);
+    currHandler: e => {
+      setCurrency(e.target.value);
       setLoader(!loader);
       fetchRateData(currency).then(res => {
         setLoader(false);
@@ -54,6 +52,10 @@ const App = () => {
         console.log(rates);
         setRateData(rates);
       });
+    },
+    currValue: currency,
+    cryptoHandler: e => {
+      setCryptoCurrency(e.target.value);
     },
     cryptoValue: cryptoCurrency,
     handleRateButton: () => {

@@ -24,12 +24,7 @@ const Currencies = props => {
         items={targetCurrencies}
         label="Select currency"
       />
-      <Dropdown
-        changeHandler={cryptoHandler}
-        value={cryptoValue}
-        items={cryptoMenu}
-        label="Select cryptocurrency"
-      />
+
       <br />
       <br />
     </div>
