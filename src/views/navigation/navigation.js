@@ -53,8 +53,9 @@ export default function Navigation() {
         }}
         anchor="left"
       >
-        <div className={classes.toolbar} />
-        <Divider />
+        <div>brand</div>
+
+        {/* <Divider /> */}
         <List>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
             <ListItem button key={text}>
@@ -77,9 +78,6 @@ export default function Navigation() {
           ))}
         </List>
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-      </main>
     </div>
   );
 }
