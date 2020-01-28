@@ -33,9 +33,9 @@ const App = () => {
   //   }
   // }, [sendReq]);
 
-  const fetchRateData = async (crypt, curr) => {
+  const fetchRateData = async curr => {
     let result = await axios.get(
-      `https://ehr9i.sse.codesandbox.io/currency-rates?fsym=${crypt}&tsyms=${curr}`
+      `https://kpyfb.sse.codesandbox.io/currency-rates?fsyms=BTC,ETH,LTC,XRP&tsyms=${curr}`
     );
 
     return result;
@@ -47,11 +47,12 @@ const App = () => {
     cryptoHandler: e => {
       setCryptoCurrency(e.target.value);
       setLoader(!loader);
-      fetchRateData(cryptoCurrency, currency).then(res => {
+      fetchRateData(currency).then(res => {
         setLoader(false);
-        let ratesdata = Object.values(res.data)[0];
-        console.log(res.data);
-        setRateData(ratesdata);
+        let ratesdata = Object.values(res.data);
+        let rates = ratesdata.map((item, key) => item[Object.keys(item)[0]]);
+        console.log(rates);
+        setRateData(rates);
       });
     },
     cryptoValue: cryptoCurrency,
@@ -65,7 +66,7 @@ const App = () => {
 
   const resultProps = {
     rates: rateData,
-    title: `${currency}/${cryptoCurrency}`,
+    currency: currency,
     isLoading: loader
   };
   return (
