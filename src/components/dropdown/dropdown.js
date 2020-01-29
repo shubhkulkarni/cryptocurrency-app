@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
@@ -18,25 +16,36 @@ const useStyles = makeStyles(theme => ({
 
 const Dropdown = ({ value, items, label, changeHandler = () => false }) => {
   const classes = useStyles();
+  const inputLabel = React.useRef(null);
+  const [labelWidth, setLabelWidth] = React.useState(0);
+  React.useEffect(() => {
+    setLabelWidth(inputLabel.current.offsetWidth);
+  }, []);
 
   return (
-    <FormControl className={classes.formControl}>
-      <InputLabel id="demo-simple-select-label">{label}</InputLabel>
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        value={value}
-        onChange={changeHandler}
-      >
-        {items.map((item, index) => {
-          return (
-            <MenuItem key={index} value={item}>
-              {item}
-            </MenuItem>
-          );
-        })}
-      </Select>
-    </FormControl>
+    <>
+      <FormControl variant="outlined" className={classes.formControl}>
+        <InputLabel ref={inputLabel} htmlFor="outlined-age-native-simple">
+          {label}
+        </InputLabel>
+        <Select
+          native
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          labelWidth={labelWidth}
+          value={value}
+          onChange={changeHandler}
+        >
+          {items.map((item, index) => {
+            return (
+              <option key={index} value={item.name}>
+                {item.name}
+              </option>
+            );
+          })}
+        </Select>
+      </FormControl>
+    </>
   );
 };
 export default Dropdown;

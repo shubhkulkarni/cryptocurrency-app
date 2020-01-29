@@ -1,32 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./currencies.css";
 import Dropdown from "../../components/dropdown";
-import Mybutton from "../../components/mybutton";
-import { targetCurrencies } from "../../constants/currencies";
 
-const Currencies = props => {
-  const {
-    currValue,
-    cryptoValue,
-    currHandler,
-    cryptoHandler,
-    handleRateButton
-  } = props;
-
-  const currencyMenu = ["USD", "INR", "GBP", "JPY"];
-  const cryptoMenu = ["BTC", "ETH", "LTC", "XRP"];
-
+const Currencies = ({ currValue, currHandler, countries }) => {
   return (
     <div className="currencies">
       <Dropdown
         changeHandler={currHandler}
         value={currValue}
-        items={targetCurrencies}
-        label="Select currency"
+        items={countries}
+        label="Currency"
       />
-
-      <br />
-      <br />
     </div>
   );
 };
