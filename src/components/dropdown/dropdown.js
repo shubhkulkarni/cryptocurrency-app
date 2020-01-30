@@ -16,8 +16,11 @@ const useStyles = makeStyles(theme => ({
 
 const Dropdown = ({ value, items, label, changeHandler = () => false }) => {
   const classes = useStyles();
+
   const inputLabel = React.useRef(null);
+
   const [labelWidth, setLabelWidth] = React.useState(0);
+
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);

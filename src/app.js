@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import map from "lodash/map";
 import head from "lodash/head";
 import Currencies from "./views/currencies";
 import Results from "./views/results/results";
@@ -10,8 +9,8 @@ import Navigation from "./views/navigation/navigation";
 const App = () => {
   const [currency, setCurrency] = useState("");
   const [countries, setCountries] = useState([]);
-  const [loader, setLoader] = useState(false);
-  const [rateData, setRateData] = useState();
+  const [isLoading, setLoader] = useState(false);
+  const [rates, setRates] = useState();
 
   useEffect(() => {
     (async function() {
@@ -20,17 +19,20 @@ const App = () => {
   }, []);
 
   const getCurrencyByCountry = name =>
-    head((countries.find(c => c.name === name) || {}).currencies || {}).code;
+    head((countries.find(c => c.name === name) || {}).currencies || [{}]).code;
+
+  const getCurrencySymbol = name =>
+    head((countries.find(c => c.name === name) || {}).currencies || [{}])
+      .symbol;
 
   const currencyProps = {
     currHandler: e => {
       setCurrency(e.target.value);
-      setLoader(!loader);
+      setLoader(!isLoading);
       let curr = getCurrencyByCountry(e.target.value);
       fetchCurrencies(curr).then(res => {
         setLoader(false);
-        let rates = map(res, (item, key) => item[Object.keys(item)[0]]);
-        setRateData(rates);
+        setRates(res);
       });
     },
     currValue: currency,
@@ -38,9 +40,11 @@ const App = () => {
   };
 
   const resultProps = {
-    rates: rateData,
-    currency: currency,
-    isLoading: loader
+    rates,
+    isLoading,
+    currency,
+    code: getCurrencyByCountry(currency),
+    symbol: getCurrencySymbol(currency)
   };
   return (
     <div className="App">
