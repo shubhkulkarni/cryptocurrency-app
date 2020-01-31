@@ -19,8 +19,10 @@ const useStyles = makeStyles({
   title: {
     fontSize: 14
   },
-  pos: {
-    marginBottom: 12
+  pos: { float: "right" },
+  heading: {
+    float: "right",
+    marginBottom: "30px"
   }
 });
 const MyCard = ({ title, heading, body, action }) => {
@@ -36,14 +38,15 @@ const MyCard = ({ title, heading, body, action }) => {
         >
           {title}
         </Typography>
-        <Typography variant="h3" component="h2">
+        <Typography className={classes.heading} variant="h4" component="h2">
           {heading}
-        </Typography>
-
-        <Typography className={classes.pos} color="textSecondary">
+        </Typography>{" "}
+        <br />
+        {/* <Typography className={classes.pos} color="textSecondary">
           {body}
-        </Typography>
+        </Typography> */}
       </CardContent>
+
       <CardActions>
         <Button size="small">{action}</Button>
       </CardActions>
