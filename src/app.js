@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import head from "lodash/head";
 import Currencies from "./views/currencies";
 import Results from "./views/results/results";
-import Loader from "./components/loader";
 import { fetchCountries, fetchCurrencies } from "./services/currency.service";
 import Navigation from "./views/navigation/navigation";
 
@@ -51,7 +50,6 @@ const App = () => {
       <Navigation />
       <div className="currency">
         <Currencies {...currencyProps} />
-
         <Results {...resultProps} />
       </div>
     </div>
