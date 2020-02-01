@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     // minWidth: 275,
     minHeight: 140,
     marginRight: "30px",
-    borderTop: "4px solid red"
+    borderTop: "4px solid darkblue"
   },
   title: {
     fontSize: 14
