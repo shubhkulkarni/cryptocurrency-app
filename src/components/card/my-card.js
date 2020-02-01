@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles({
   card: {
     // minWidth: 275,
-    minHeight: 170,
+    minHeight: 140,
     marginRight: "30px",
     borderTop: "4px solid red"
   },
@@ -35,7 +35,7 @@ const MyCard = ({ title, heading, body, action }) => {
         >
           {title}
         </Typography>
-        <Typography className={classes.heading} variant="h4" component="h2">
+        <Typography className={classes.heading} variant="h5" component="h2">
           {heading}
         </Typography>
         <br />
@@ -44,9 +44,9 @@ const MyCard = ({ title, heading, body, action }) => {
           {body}
         </Typography> */}
       </CardContent>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small">{action}</Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 };

@@ -48,11 +48,12 @@ const App = () => {
   };
   return (
     <div className="App">
-      {/* <Navigation /> */}
+      <Navigation />
       <div className="currency">
         <Currencies {...currencyProps} />
+
+        <Results {...resultProps} />
       </div>
-      <Results {...resultProps} />
     </div>
   );
 };

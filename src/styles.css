@@ -7,10 +7,11 @@
 .currency {
   align-items: center;
   justify-content: center;
-  display: flex;
+  width: 100%;
 }
 
 .App {
   height: 100%;
   width: 100%;
+  display: flex;
 }
