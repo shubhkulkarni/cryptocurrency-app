@@ -55,7 +55,7 @@ export default function Navigation() {
         anchor="left"
       >
         <Typography className={classes.brand} variant="h4" component="h2">
-          CryptoLive
+          CryptoGyan
         </Typography>
 
         {/* <Divider /> */}
