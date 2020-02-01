@@ -27,7 +27,14 @@ const Results = ({ isLoading, rates, code, symbol }) => {
   return (
     <div className="result">
       {isLoading ? (
-        <Loader />
+        // <Loader />
+        <Grid container>
+          {map(rates, (rate, key) => (
+            <Grid item xs={12} md={3} xl={3} key={key}>
+              <CardSkeleton />
+            </Grid>
+          ))}
+        </Grid>
       ) : rates ? (
         <Grid container>
           {map(rates, (rate, key) => (
