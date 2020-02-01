@@ -8,14 +8,13 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
+import Typography from "@material-ui/core/Typography";
 import MailIcon from "@material-ui/icons/Mail";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex"
-  },
+  root: { display: "flex" },
   appBar: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth
@@ -27,10 +26,15 @@ const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: drawerWidth
   },
-  toolbar: theme.mixins.toolbar,
+  brand: {
+    alignItems: "center",
+    justifyContent: "center",
+    padding: theme.spacing(3),
+    color: "darkblue"
+  },
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.primary,
     padding: theme.spacing(3)
   }
 }));
@@ -50,7 +54,9 @@ export default function Navigation() {
         }}
         anchor="left"
       >
-        <div>brand</div>
+        <Typography className={classes.brand} variant="h4" component="h2">
+          CryptoLive
+        </Typography>
 
         {/* <Divider /> */}
         <List>
