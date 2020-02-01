@@ -32,11 +32,13 @@ const Results = ({ isLoading, rates, code, symbol }) => {
         <Grid container>
           {map(rates, (rate, key) => (
             <Grid item xs={12} md={3} xl={3} key={key}>
-              <MyCard
-                title={getTitle(key)}
-                heading={getRate({ rate, code, symbol })}
-                {...cardProps}
-              />
+              <div>
+                <MyCard
+                  title={getTitle(key)}
+                  heading={getRate({ rate, code, symbol })}
+                  {...cardProps}
+                />
+              </div>
             </Grid>
           ))}
         </Grid>

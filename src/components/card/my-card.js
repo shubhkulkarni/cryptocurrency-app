@@ -8,21 +8,18 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   card: {
-    minWidth: 275,
-    marginRight: "30px"
+    // minWidth: 275,
+    minHeight: 170,
+    marginRight: "30px",
+    borderTop: "4px solid red"
   },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
-  },
+
   title: {
     fontSize: 14
   },
   pos: { float: "right" },
   heading: {
-    float: "right",
-    marginBottom: "30px"
+    float: "right"
   }
 });
 const MyCard = ({ title, heading, body, action }) => {
@@ -40,13 +37,13 @@ const MyCard = ({ title, heading, body, action }) => {
         </Typography>
         <Typography className={classes.heading} variant="h4" component="h2">
           {heading}
-        </Typography>{" "}
+        </Typography>
         <br />
+
         {/* <Typography className={classes.pos} color="textSecondary">
           {body}
         </Typography> */}
       </CardContent>
-
       <CardActions>
         <Button size="small">{action}</Button>
       </CardActions>
