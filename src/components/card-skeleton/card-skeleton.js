@@ -5,7 +5,7 @@ const CardSkeleton = () => {
   return (
     <div style={{ marginRight: "30px" }}>
       <Skeleton variant="text" height={40} animation="pulse" />
-      <Skeleton variant="rect" height={100} animation="pulse" />
+      <Skeleton variant="rect" height={105} animation="pulse" />
     </div>
   );
 };
