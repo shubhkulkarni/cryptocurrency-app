@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import "./results.css";
 import MyCard from "../../components/card";
 import CardSkeleton from "../../components/card-skeleton";
+import commaNumber from "comma-number";
 
 const cardProps = {
   body: "223+ from last day",
@@ -18,7 +19,7 @@ const CURRENCY = {
 };
 
 const getRate = ({ rate, code, symbol }) =>
-  symbol ? `${symbol} ${rate[code]}` : rate[code];
+  symbol ? `${symbol} ${commaNumber(rate[code])}` : commaNumber(rate[code]);
 
 const getTitle = key => (CURRENCY[key] || "No Data :( ").toUpperCase();
 
