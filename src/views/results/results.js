@@ -5,6 +5,7 @@ import "./results.css";
 import MyCard from "../../components/card";
 import CardSkeleton from "../../components/card-skeleton";
 import commaNumber from "comma-number";
+import MuiAlert from "@material-ui/lab/Alert";
 
 const cardProps = {
   body: "223+ from last day",
