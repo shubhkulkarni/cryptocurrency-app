@@ -9,21 +9,28 @@ const useStyles = makeStyles({
     // minWidth: 275,
     minHeight: 140,
     marginRight: "30px",
-    borderTop: "4px solid darkblue"
+    borderTop: "4px solid red"
+
+    // borderImageSource: ` linear-gradient(45deg, rgb(0,143,104), rgb(250,224,66))`,
+    // borderImageSlice: 1
   },
   title: {
     fontSize: 14
   },
   pos: { float: "right" },
   heading: {
-    float: "right"
+    float: "right",
+    color: "white"
   }
 });
-const MyCard = ({ title, heading, body, action }) => {
+const MyCard = ({ title, heading, body, action, colors }) => {
   const classes = useStyles();
-
+  console.log(colors);
   return (
-    <Card className={classes.card}>
+    <Card
+      style={{ backgroundImage: ` linear-gradient(60deg, ${colors}` }}
+      className={classes.card}
+    >
       <CardContent>
         <Typography
           className={classes.title}
@@ -32,7 +39,7 @@ const MyCard = ({ title, heading, body, action }) => {
         >
           {title}
         </Typography>
-        <Typography className={classes.heading} variant="h5" component="h2">
+        <Typography className={classes.heading} variant="h4" component="h2">
           {heading}
         </Typography>
         <br />

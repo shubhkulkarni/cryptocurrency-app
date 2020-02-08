@@ -19,10 +19,18 @@ const CURRENCY = {
   XRP: "Ripple"
 };
 
+const COLORS = [
+  "#ffa726, #fb8c00",
+  "#66bb6a, #43a047",
+  "#ef5350, #e53935",
+  "#26c6da, #00acc1"
+];
 const getRate = ({ rate, code, symbol }) =>
   symbol ? `${symbol} ${commaNumber(rate[code])}` : commaNumber(rate[code]);
 
 const getTitle = key => (CURRENCY[key] || "No Data :( ").toUpperCase();
+
+const getColor = key => COLORS[key];
 
 const Results = ({ isLoading, rates, code, symbol }) => {
   return (
@@ -43,6 +51,7 @@ const Results = ({ isLoading, rates, code, symbol }) => {
               <div>
                 <MyCard
                   title={getTitle(key)}
+                  colors={COLORS[0]}
                   heading={getRate({ rate, code, symbol })}
                   {...cardProps}
                 />
@@ -50,7 +59,9 @@ const Results = ({ isLoading, rates, code, symbol }) => {
             </Grid>
           ))}
         </Grid>
-      ) : null}
+      ) : (
+        <div>Error</div>
+      )}
     </div>
   );
 };
